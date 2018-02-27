@@ -14,5 +14,5 @@ Here output_sudoku.txt is the file in which you want the output to be written.
 
 CONTRIBUTIONS:
 This is a very basic implementation of sudoku solver.
-An contributions to it to make it more more efficient are appreciated.
+Any contributions to make it more efficient are appreciated.
 Just drop a pull request anytime :)
