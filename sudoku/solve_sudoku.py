@@ -2,8 +2,10 @@ import sys
 import os
 
 def solve(grid):
+    """ main function to solve the grid.
+    """
     availableOptions = {}   # keys -> tuple(row, col) of blank spaces;
-						                # values -> set of possibilties
+			    # values -> set of possibilties
     m = len(grid)
     sRow = int(m**0.5)
     sCol = int(m**0.5)  # sRow x sCol (size of subGrid)
@@ -44,11 +46,13 @@ def solve(grid):
         for key in found:
             del availableOptions[key]
         i += 1
-        sys.stdout.write("\r--> number of iterations = %d" % i)
+        sys.stdout.write("\r--> number of iterations = %d" % i) # Show the curent iteration number.
     print()
     return grid
 
 def input_sudoku(filename):
+    """Take the input and preprocess it to return a 2D Matrix of NxN.
+    """
     grid = []
     if not filename:
         filename = input("\nEnter the name of input file : ")
@@ -60,6 +64,8 @@ def input_sudoku(filename):
     return grid
 
 def output_sudoku(grid, outfile):
+    """Prints the solved sudoku and writes it in the output file.
+    """
     m = len(grid)
     if m < 10:     pad = 1
     else:          pad = 2
@@ -76,6 +82,9 @@ def output_sudoku(grid, outfile):
         fp.write(out)
 
 def test_sudoku():
+    """Test the function with a 9 x 9 grid
+       and a 16 x 16 grid.
+    """
     grid_9x9_easy     = solve(input_sudoku('./9x9_easy.txt'))
     grid_16x16_medium = solve(input_sudoku('./16x16_medium.txt'))
     
@@ -121,10 +130,3 @@ if __name__ == '__main__':
     grid = input_sudoku(inputfile)
     grid = solve(grid)
     output_sudoku(grid, outputfile)
-    
-    
-    
-    
-    
-    
-    
